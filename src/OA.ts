@@ -5,6 +5,7 @@ import {
   OaMediaMessageOptions,
   OaMessageOptions,
   OaMessageResponse, 
+  OaReplyMessageOptions, 
   OaRequestMessageOptions, 
   OaTextMessageOptions
 } from "./types";
@@ -21,6 +22,9 @@ export const message = async(options: OaMessageOptions) : Promise<OaMessageRespo
     .then(response => resolve(response.data))
     .catch(err => reject(err))
   })
+}
+export const reply_message = async(options: OaReplyMessageOptions) : Promise<OaMessageResponse> => {
+  return message(options)
 }
 
 export const text_message = async(options: OaTextMessageOptions) : Promise<OaMessageResponse> => {

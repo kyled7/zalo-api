@@ -1,6 +1,6 @@
 {
   "name": "zalo-api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A wrapper library to help integrate with Zalo API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

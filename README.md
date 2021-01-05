@@ -23,9 +23,9 @@ yarn add zalo-api
 | [Invitable friends](https://developers.zalo.me/docs/api/social-api/tai-lieu/danh-sach-ban-be-post-34) | [Social.invitable_friends()](#invitable-friends) | :white_check_mark: |
 | [Get profile](https://developers.zalo.me/docs/api/social-api/tai-lieu/thong-tin-nguoi-dung-post-28) | [Social.profile()](#get-profile) | :white_check_mark: |
 | [**Official Account API**](https://developers.zalo.me/docs/api/official-account-api-147) |
-| [Reply follower's message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-phan-hoi-nguoi-dung-post-4877) |  | :white_square_button: |
-| [Send message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-nhan-post-2343) | [OA.message()](#oa-message) | :white_check_mark: |
-| [Broadcast](https://developers.zalo.me/docs/api/official-account-api/api/broadcast-bai-viet-post-4005) | [OA.message()](#broadcast) | :white_check_mark: |
+| [Reply follower's message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-phan-hoi-nguoi-dung-post-4877) | [OA.reply_message()](#oa-reply-message) | :white_check_mark: |
+| [Send message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-nhan-post-2343) | [OA.message()](#oa-message) <br/> *Shortcut APIs:* <br/> [OA.text_message()](#oa-text-message) <br/> [OA.media_message()](#oa-media-message) <br/> [OA.list_message()](#oa-textlist-message) <br/> [OA.request_info_message()](#oa-request-user-info-message) | :white_check_mark: |
+| [Broadcast](https://developers.zalo.me/docs/api/official-account-api/api/broadcast-bai-viet-post-4005) | [OA.broadcast()](#broadcast) | :white_check_mark: |
 | [Update follower info](https://developers.zalo.me/docs/api/official-account-api/api/cap-nhat-thong-tin-nguoi-quan-tam-post-3278) |  | :white_square_button: |
 | [Register IP](https://developers.zalo.me/docs/api/official-account-api/api/dang-ky-su-dung-ip-post-2589) |  | :white_square_button: |
 | [Get follower's info](https://developers.zalo.me/docs/api/official-account-api/api/lay-thong-tin-post-2570) |  | :white_square_button: |
@@ -77,5 +77,59 @@ const access_token = Social.access_token({
   app_id: 'your_app_id', // process.env.zalo_app_id
   app_secret: 'your_app_secret', // process.env.zalo_app_secret
   code: 'your_oauth_code', // refer document here https://developers.zalo.me/docs/api/social-api/tham-khao/user-access-token-post-4316
+})
+```
+
+
+## Official Account API
+
+### OA Message
+Send generic message with all available parameters
+Parameters
+```typescript
+{
+  access_token: string,
+  recipient: {
+    message_id?: string,
+    user_id?: string,
+    target?: {}
+  },
+  message: {
+    text?: string,
+    attachment?: {
+      type: 'template' | 'file',
+      payload: {
+        template_type?: 'list' | 'media' | 'request_user_info'
+        elements?: {} //Depends on types
+        buttons?: {}
+        ...
+      } 
+    }
+  }
+}
+```
+Return (same for all message API)
+```typescript
+{
+  error?: number,
+  message: string,
+  data?: {
+    message_id: string
+  }
+}
+```
+
+Example
+```typescript
+import { OA } from 'zalo-api';
+
+const access_token = OA.message({
+  access_token: 'your_oa_access_token', // https://developers.zalo.me/docs/api/official-account-api/phu-luc/official-account-access-token-post-4307
+  recipient: {
+    user_id: 'user_id'
+  }
+  message: {
+    text: 'Hello Zalo API'
+  }
 })
 ```

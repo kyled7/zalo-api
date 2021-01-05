@@ -194,3 +194,4 @@ export type OaListMessageOptions = OaMessageFactory<MessageRecipientTypes, ListT
 export type OaFileMessageOptions = OaMessageFactory<MessageRecipientTypes, FileMessage>
 export type OaRequestMessageOptions = OaMessageFactory<MessageRecipientTypes, RequestInfoTemplateMessage>
 export type OaBroadcastOptions = OaMessageFactory<BroadcastRecipient, MediaTemplateMessage>
+export type OaReplyMessageOptions = OaMessageFactory<ReplyMessageRecipient, AllMessageTypes>
