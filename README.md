@@ -14,7 +14,7 @@ yarn add zalo-api
 # Zalo API mapping
 | Zalo docs | This library | Status |
 |:-|:-|:-:|
-| [**Social API**](https://developers.zalo.me/docs/api/social-api-4) |  |  |
+| [**Social API**](https://developers.zalo.me/docs/api/social-api-4)  |
 | [Get access token](https://developers.zalo.me/docs/api/social-api/tham-khao/user-access-token-post-4316) | [Social.access_token()](#get-access-token) | [x] |
 | [Send message to friend](https://developers.zalo.me/docs/api/social-api/tai-lieu/gui-tin-nhan-toi-ban-be-post-1183) | [Social.message()](#send-message) | [x] |
 | [Invite friend](https://developers.zalo.me/docs/api/social-api/tai-lieu/moi-su-dung-ung-dung-post-41) | [Social.app_request()](#invite-friend) | [x] |
@@ -22,8 +22,7 @@ yarn add zalo-api
 | [List friends](https://developers.zalo.me/docs/api/social-api/tai-lieu/danh-sach-ban-be-post-34) | [Social.friends()](#get-friends) | [x] |
 | [Invitable friends](https://developers.zalo.me/docs/api/social-api/tai-lieu/danh-sach-ban-be-post-34) | [Social.invitable_friends()](#invitable-friends) | [x] |
 | [Get profile](https://developers.zalo.me/docs/api/social-api/tai-lieu/thong-tin-nguoi-dung-post-28) | [Social.profile()](#get-profile) | [x] |
-| | | |
-| [**Official Account API**](https://developers.zalo.me/docs/api/official-account-api-147) |  |  |
+| [**Official Account API**](https://developers.zalo.me/docs/api/official-account-api-147) |
 | [Reply follower's message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-phan-hoi-nguoi-dung-post-4877) |  | [ ] |
 | [Send message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-nhan-post-2343) | [OA.message()](#oa-message) | [x] |
 | [Broadcast](https://developers.zalo.me/docs/api/official-account-api/api/broadcast-bai-viet-post-4005) | [OA.message()](#broadcast) | [x] |
