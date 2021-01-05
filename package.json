@@ -1,6 +1,6 @@
 {
   "name": "zalo-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A wrapper library to help integrate with Zalo API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/kyled7/zalo-api.git"
   },
-  "keywords": ["Zalo", "Zalo API", "Zalo API NodeJS", "Zalo API Typescript"],
+  "keywords": [
+    "Zalo",
+    "Zalo API",
+    "Zalo API NodeJS",
+    "Zalo API Typescript"
+  ],
   "author": "Kyle Dinh",
   "license": "ISC",
   "dependencies": {
