@@ -96,7 +96,8 @@ type BroadcastRecipient = {
   }
 }
 
-type AllRecipientTypes = ReplyMessageRecipient | SendMessageRecipient | BroadcastRecipient
+type MessageRecipientTypes = ReplyMessageRecipient | SendMessageRecipient
+type AllRecipientTypes = MessageRecipientTypes | BroadcastRecipient
 
 /** Mesage configs */
 type UrlOpenAction = {
@@ -186,3 +187,10 @@ export type OaMessageResponse = {
     message_id: string
   }
 }
+
+export type OaTextMessageOptions = OaMessageFactory<MessageRecipientTypes, TextMessage>
+export type OaMediaMessageOptions = OaMessageFactory<MessageRecipientTypes, MediaTemplateMessage>
+export type OaListMessageOptions = OaMessageFactory<MessageRecipientTypes, ListTemplateMessage>
+export type OaFileMessageOptions = OaMessageFactory<MessageRecipientTypes, FileMessage>
+export type OaRequestMessageOptions = OaMessageFactory<MessageRecipientTypes, RequestInfoTemplateMessage>
+export type OaBroadcastOptions = OaMessageFactory<BroadcastRecipient, MediaTemplateMessage>

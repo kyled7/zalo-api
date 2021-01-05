@@ -1,7 +1,12 @@
 import { get, post } from "./HttpRequest";
 import { 
+  OaBroadcastOptions,
+  OaListMessageOptions,
+  OaMediaMessageOptions,
   OaMessageOptions,
-  OaMessageResponse 
+  OaMessageResponse, 
+  OaRequestMessageOptions, 
+  OaTextMessageOptions
 } from "./types";
 
 export const message = async(options: OaMessageOptions) : Promise<OaMessageResponse> => {
@@ -16,4 +21,24 @@ export const message = async(options: OaMessageOptions) : Promise<OaMessageRespo
     .then(response => resolve(response.data))
     .catch(err => reject(err))
   })
+}
+
+export const text_message = async(options: OaTextMessageOptions) : Promise<OaMessageResponse> => {
+  return message(options)
+}
+
+export const media_message = async(options: OaMediaMessageOptions) : Promise<OaMessageResponse> => {
+  return message(options)
+}
+
+export const list_message = async(options: OaListMessageOptions) : Promise<OaMessageResponse> => {
+  return message(options)
+}
+
+export const request_info_message = async(options: OaRequestMessageOptions) : Promise<OaMessageResponse> => {
+  return message(options)
+}
+
+export const broadcast = async(options: OaBroadcastOptions) : Promise<OaMessageResponse> => {
+  return message(options)
 }
