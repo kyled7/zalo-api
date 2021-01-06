@@ -26,11 +26,11 @@ yarn add zalo-api
 | [Reply follower's message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-phan-hoi-nguoi-dung-post-4877) | [OA.reply_message()](#oa-reply-message) | :white_check_mark: |
 | [Send message](https://developers.zalo.me/docs/api/official-account-api/api/gui-tin-nhan-post-2343) | [OA.message()](#oa-message) <br/> *Shortcut APIs:* <br/> [OA.text_message()](#oa-text-message) <br/> [OA.media_message()](#oa-media-message) <br/> [OA.list_message()](#oa-textlist-message) <br/> [OA.request_info_message()](#oa-request-user-info-message) | :white_check_mark: |
 | [Broadcast](https://developers.zalo.me/docs/api/official-account-api/api/broadcast-bai-viet-post-4005) | [OA.broadcast()](#broadcast) | :white_check_mark: |
-| [Update follower info](https://developers.zalo.me/docs/api/official-account-api/api/cap-nhat-thong-tin-nguoi-quan-tam-post-3278) |  | :white_square_button: |
-| [Register IP](https://developers.zalo.me/docs/api/official-account-api/api/dang-ky-su-dung-ip-post-2589) |  | :white_square_button: |
-| [Get follower's info](https://developers.zalo.me/docs/api/official-account-api/api/lay-thong-tin-post-2570) |  | :white_square_button: |
-| [Upload image/file](https://developers.zalo.me/docs/api/official-account-api/api/upload-post-2568) |  | :white_square_button: |
-| [Get/assign/remove tags](https://developers.zalo.me/docs/api/official-account-api/api/nhan-post-2564) |  | :white_square_button: |
+| [Update follower info](https://developers.zalo.me/docs/api/official-account-api/api/cap-nhat-thong-tin-nguoi-quan-tam-post-3278) | [OA.update_follower_info()](#update-follower-info) | :white_check_mark: |
+| [Manage IP](https://developers.zalo.me/docs/api/official-account-api/api/dang-ky-su-dung-ip-post-2589) | [OA.register_ip()](#register-ip)<br/>[OA.remove_ip()](#remove-ip) | :white_check_mark: |
+| [Get infos](https://developers.zalo.me/docs/api/official-account-api/api/lay-thong-tin-post-2570) | [OA.get_followers()](#get-followers)<br/>[OA.get_profile()](#get-profile)<br/>[OA.get_info()](#get-oa-info)<br>[OA.get_recent_chat()](#get-recent-chat)<br>[OA.get_conversation()](#get-conversation) | :white_check_mark: |
+| [Upload image/file](https://developers.zalo.me/docs/api/official-account-api/api/upload-post-2568) | [OA.upload_image()](#upload-image)<br/>[OA.upload_gif()](#upload-gif)<br/>[OA.upload_file()](#upload-file) | :white_check_mark: |
+| [Get/assign/remove tags](https://developers.zalo.me/docs/api/official-account-api/api/nhan-post-2564) | [OA.list_tags()](#list-tags)<br/>[OA.assign_tag()](#assign-tag)<br/>[OA.remove_follower_tag()](#remove_follower_tag)<br/>[OA.delete_tag()](#delete_tag) | :white_check_mark: |
 | [**Shop API**](https://developers.zalo.me/docs/api/shop-api-124)|
 | [Attributes type CRUD](https://developers.zalo.me/docs/api/shop-api/api/thuoc-tinh-post-2993) |  | :white_square_button: |
 | [Upload photo](https://developers.zalo.me/docs/api/shop-api/api/tai-anh-len-post-2951) |  | :white_square_button: |

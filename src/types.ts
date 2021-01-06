@@ -77,6 +77,15 @@ interface OaMessageFactory<RT, MT> extends BaseOptions {
   recipient: RT
   message: MT
 }
+type OaBaseResponse = {
+  error: number,
+  message: string
+}
+interface OaBaseResponseWithData<T> {
+  error: number,
+  message: string,
+  data: T
+}
 
 /** Message recipient types */
 type ReplyMessageRecipient = {
@@ -180,13 +189,9 @@ type FileMessage = {
 type AllMessageTypes = TextMessage | ListTemplateMessage | MediaTemplateMessage | RequestInfoTemplateMessage | FileMessage
 
 export type OaMessageOptions = OaMessageFactory<AllRecipientTypes, AllMessageTypes>
-export type OaMessageResponse = {
-  error?: number,
-  message: string,
-  data?: {
-    message_id: string
-  }
-}
+export type OaMessageResponse = OaBaseResponseWithData<{
+  message_id: string
+}>
 
 export type OaTextMessageOptions = OaMessageFactory<MessageRecipientTypes, TextMessage>
 export type OaMediaMessageOptions = OaMessageFactory<MessageRecipientTypes, MediaTemplateMessage>
@@ -195,3 +200,115 @@ export type OaFileMessageOptions = OaMessageFactory<MessageRecipientTypes, FileM
 export type OaRequestMessageOptions = OaMessageFactory<MessageRecipientTypes, RequestInfoTemplateMessage>
 export type OaBroadcastOptions = OaMessageFactory<BroadcastRecipient, MediaTemplateMessage>
 export type OaReplyMessageOptions = OaMessageFactory<ReplyMessageRecipient, AllMessageTypes>
+
+/** OA IPs */
+export interface OaManageIpOptions extends BaseOptions {
+  ip: string,
+  name: string
+}
+export type OaManageIpResponse = OaBaseResponse
+
+/** OA Get infos */
+export interface OaGetFollowersOptions extends BaseOptions {
+  data: {
+    offset: number,
+    count: number
+  }
+}
+export type OaGetFollowersResponse = OaBaseResponseWithData<{
+  total: number,
+  follower: [{
+    user_id: string
+  }]
+}>
+
+export interface OaGetProfileOptions extends BaseOptions {
+  data: {
+    user_id: string
+  }
+}
+export type OaGetProfileResponse = OaBaseResponseWithData<{
+  user_gender: number,
+  user_id: number,
+  user_id_by_app: number,
+  avatar: string,
+  avatars: {
+    120: string,
+    240: string
+  },
+  display_name: string,
+  birth_date: number,
+  shared_info: string,
+  tags_and_notes_info: {
+    tags_name: [any],
+    notes: [any]
+  }
+}>
+
+export interface OaGetInfoOptions extends BaseOptions {}
+export type OaGetInfoResponse = OaBaseResponseWithData<{
+  oa_id: number,
+  description: string,
+  name: string,
+  avatar: string,
+  cover: string
+}>
+
+type OaChatData = {
+  msg_id: string,
+  src: number,
+  time: number,
+  type: string,
+  message: string,
+  links: string,
+  thumb: string,
+  url: string,
+  description: string,
+  from_id: string,
+  to_id: string,
+  from_display_name: string,
+  from_avatar: string,
+  to_display_name: string,
+  to_avatar: string,
+  location: string
+}
+export interface OaGetRecentChatOptions extends OaGetFollowersOptions {}
+export type OaGetRecentChatResponse = OaBaseResponseWithData<[OaChatData]>
+
+export interface OaGetConversationOptions extends OaListMessageOptions {
+  user_id: number
+}
+export type OaGetConversationResponse = OaGetRecentChatResponse
+
+/** OA Update follower info */
+export interface OaUpdateFollowerInfoOptions extends BaseOptions {
+  user_id: number,
+  name: string,
+  phone: string,
+  address: string,
+  city_id: number,
+  district_id: number
+}
+export type OaUpdateFollowerInfoReponse = OaBaseResponse
+
+/** OA upload APIs */
+export interface OaUploadOptions extends BaseOptions {
+  file: BinaryType
+}
+export type OaUploadImageResponse = OaBaseResponseWithData<{
+  attachment_id: string
+}>
+export type OaUploadFileResponse = OaBaseResponseWithData<{
+  token: string
+}>
+
+/** OA Tags management APIs */
+export type OaListTagsOptions = BaseOptions
+export type OaListTagsResponse = OaBaseResponseWithData<[string]>
+export interface OaManageTagOptions extends BaseOptions {
+  tag_name: string
+}
+export interface OaManageFollowerTagOptions extends OaManageTagOptions {
+  user_id: number
+}
+export type OaManageTagResponse = OaBaseResponse
