@@ -7,6 +7,8 @@ import {
   OaGetFollowersResponse,
   OaGetInfoOptions,
   OaGetInfoResponse,
+  OaGetProfileOptions,
+  OaGetProfileResponse,
   OaGetRecentChatOptions,
   OaGetRecentChatResponse,
   OaListMessageOptions,
@@ -103,7 +105,7 @@ export const get_followers = async(options: OaGetFollowersOptions) : Promise<OaG
   })
 }
 
-export const get_profile = async(options: OaGetFollowersOptions) : Promise<OaGetFollowersResponse> => {
+export const get_profile = async(options: OaGetProfileOptions) : Promise<OaGetProfileResponse> => {
   return new Promise((resolve, reject) => {
     get('https://openapi.zalo.me/v2.0/oa/getprofile', {
       params: { ...options }
