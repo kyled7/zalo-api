@@ -217,7 +217,7 @@ export interface OaGetFollowersOptions extends BaseOptions {
 }
 export type OaGetFollowersResponse = OaBaseResponseWithData<{
   total: number,
-  follower: [{
+  followers: [{
     user_id: string
   }]
 }>
