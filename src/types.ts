@@ -15,13 +15,16 @@ interface PagingResponse<T> {
 }
 
 // ================ Social API types ================
+interface SocialBaseResponse {
+  error?: any;
+}
 export type AccessTokenOptions = {
   app_id: string,
   app_secret: string,
   code: string,
   redirect_uri?: string
 }
-export type AccessTokenResponse = {
+export interface AccessTokenResponse extends SocialBaseResponse {
   access_token: string,
   expires_in: number
 }
@@ -29,7 +32,7 @@ export type AccessTokenResponse = {
 export interface ProfileOptions extends BaseOptions {
   fields?: string;
 }
-export type ProfileResponse = {
+export interface ProfileResponse extends SocialBaseResponse {
   id?: string;
   name?: string;
   gender?: string,
@@ -52,7 +55,7 @@ export interface SocialMessageOptions extends BaseOptions {
   link?: string,
   to: string
 }
-export type SocialMessageResponse = {
+export interface SocialMessageResponse extends SocialBaseResponse {
   to: string
 }
 
@@ -60,7 +63,7 @@ export interface AppRequestOptions extends BaseOptions {
   message: string,
   to: string
 }
-export type AppRequestResponse = {
+export interface AppRequestResponse extends SocialBaseResponse {
   to: [string]
 }
 
@@ -68,7 +71,7 @@ export interface FeedOptions extends BaseOptions {
   message: string,
   link: string
 }
-export type FeedResponse = {
+export interface FeedResponse extends SocialBaseResponse {
   id: string
 }
 
